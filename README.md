@@ -5,7 +5,7 @@ This is just a script to a solution I created with AI, I want to share this to a
 
 If you use heavy workflow skills in Gemini CLI (like a custom `using-superpowers` or `test-driven-development` skill), relying on the AI to remember to load them via system prompts can be flaky. Sometimes the agent just forgets and skips straight to answering your question.
 
-This guide provides a robust, program-level solution using Gemini CLI's **Hook System**. It automatically locks the session and forces the CLI to call the `activate_skill` tool on the very first turn of every new chat, guaranteeing your workflow rules are loaded before a single line of code is written.
+This script provides a robust, program-level solution using Gemini CLI's **Hook System**. It automatically locks the session and forces the CLI to call the `activate_skill` tool on the very first turn of every new chat, guaranteeing your workflow rules are loaded before a single line of code is written.
 
 ## The Solution
 
