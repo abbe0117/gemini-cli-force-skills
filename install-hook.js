@@ -58,7 +58,7 @@ function main() {
   }
 
   // Session-based lock file ensures this only runs on turn 1
-  const markerPath = path.join(tmpDir, `startup_skill_locked_\${sessionId}.lock`);
+  const markerPath = path.join(tmpDir, \`startup_skill_locked_\${sessionId}.lock\`);
 
   if (!fs.existsSync(markerPath)) {
     try {
@@ -107,7 +107,7 @@ const hookConfig = {
     {
       name: "force-startup-skill",
       type: "command",
-      command: `node \${hookFile}`
+      command: `node ${hookFile}`
     }
   ]
 };
@@ -126,6 +126,3 @@ if (!isInstalled) {
 }
 
 console.log('🎉 Installation complete! Start a new Gemini CLI session and watch it load your skills immediately.');
-`;
-
-fs.writeFileSync(path.join('/home/abbe/gemini-startup-skill-hook', 'install-hook.js'), hookScript);
