@@ -1,0 +1,7 @@
+.git
+docs/plans
+README.md
+LICENSE
+.dockerignore
+run-container-test.sh
+Dockerfile.test
