@@ -1,0 +1,17 @@
+FROM node:alpine
+
+WORKDIR /app
+
+# Set isolated home
+ENV HOME=/mock-home
+
+# Copy the script
+COPY install-hook.js .
+
+# Run the script
+RUN node install-hook.js
+
+# Verify the output
+RUN test -f /mock-home/.gemini/hooks/force-startup-skill.js && \
+    test -f /mock-home/.gemini/settings.json && \
+    grep -q "force-startup-skill" /mock-home/.gemini/settings.json

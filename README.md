@@ -26,3 +26,15 @@ Once installed, the system handles the rest. Just make sure your global instruct
 > *"Always activate the 'using-superpowers' skill before starting any task."*
 
 The hook forces the AI to open the toolbox, and your instructions tell it which tool to grab.
+
+## 🧪 Testing the Script
+
+If you want to verify that the script executes correctly without modifying your host system, you can use the included isolated Docker test. This builds an Alpine Node container, creates a mock home directory, and verifies the installation inside the container.
+
+You need Docker installed and running. Run the following command:
+
+```bash
+./run-container-test.sh
+```
+
+*(You might need to run this with `sudo` depending on your Docker setup).*
