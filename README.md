@@ -46,5 +46,3 @@ You need Docker installed and running. Run the following command:
 
 > **Note:** If you encounter a "permission denied" error, you may need to run the script with `sudo ./run-container-test.sh` or [add your user to the `docker` group](https://docs.docker.com/engine/install/linux-postinstall/).
 
-The build context is kept minimal via `.dockerignore` to ensure fast and clean test runs.
-
