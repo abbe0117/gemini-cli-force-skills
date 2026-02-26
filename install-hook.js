@@ -7,12 +7,14 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-const geminiDir = path.join(os.homedir(), '.gemini');
+const isLocal = process.argv.includes('--local');
+const baseDir = isLocal ? process.cwd() : os.homedir();
+const geminiDir = path.join(baseDir, '.gemini');
 const hooksDir = path.join(geminiDir, 'hooks');
 const settingsFile = path.join(geminiDir, 'settings.json');
 const hookFile = path.join(hooksDir, 'force-startup-skill.js');
 
-console.log('🛠️  Installing Gemini CLI Startup Skill Hook...');
+console.log(`🛠️  Installing Gemini CLI Startup Skill Hook (${isLocal ? 'Local' : 'Global'} at ${geminiDir})...`);
 
 // 1. Create hooks directory
 if (!fs.existsSync(hooksDir)) {
@@ -120,9 +122,9 @@ const isInstalled = settings.hooks.BeforeToolSelection.some(
 if (!isInstalled) {
   settings.hooks.BeforeToolSelection.push(hookConfig);
   fs.writeFileSync(settingsFile, JSON.stringify(settings, null, 2));
-  console.log('✅ Registered hook in ~/.gemini/settings.json');
+  console.log(`✅ Registered hook in ${settingsFile}`);
 } else {
-  console.log('⚡ Hook was already registered in settings.json.');
+  console.log(`⚡ Hook was already registered in ${settingsFile}`);
 }
 
 console.log('🎉 Installation complete! Start a new Gemini CLI session and watch it load your skills immediately.');

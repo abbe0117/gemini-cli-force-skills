@@ -13,12 +13,19 @@ We use a `BeforeToolSelection` hook. On the first turn of a new session, the hoo
 
 ## 🚀 One-Step Installation Script
 
-You can install this automatically using the Node.js script below. It creates the hook logic and safely injects it into your `~/.gemini/settings.json`.
+You can install this automatically using the Node.js script below. By default, it installs the hook globally into your `~/.gemini/` directory, meaning it will protect all projects on your machine.
 
-Run the installation script with:
+Run the global installation script with:
 
 ```bash
 node install-hook.js
+```
+
+**Project-Specific Installation:**
+If you have Gemini installed locally within a specific project and want to commit this hook to your repository for your team, you can use the `--local` flag. This will install the hook into the current directory's `./.gemini/` folder instead.
+
+```bash
+node install-hook.js --local
 ```
 
 ### How to use it
